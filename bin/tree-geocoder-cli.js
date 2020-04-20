@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const TreeGeocoder = require('../lib/TreeGeocoder');
 var program = require('commander');
 

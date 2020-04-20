@@ -2,7 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/tree-geocoder.svg?style=popout)](https://npmjs.com/package/tree-geocoder)
 
-A command line tool and library for geocoding based on GeoNames data and the [TREE](https://github.com/TREEcg/specification#%E1%B4%9B%CA%80%E1%B4%87%E1%B4%87) traversal approach.
+A command line tool and library for geocoding based on [GeoNames](https://www.geonames.org/) data and the [TREE](https://github.com/TREEcg/specification#%E1%B4%9B%CA%80%E1%B4%87%E1%B4%87) traversal approach.
+
+Up to this version the tool matches GeoNames entities using a prefix-based approach, meaning that a geocoding query for `gent` will result in entities like [`Gent`](https://sws.geonames.org/2797657/), [`Gentinnes`](https://sws.geonames.org/2797650/), [`Gentbrugge`](https://sws.geonames.org/2797652/), etc. Exact matches will appear first in the list of results.
 
 ## Requirements
 
@@ -33,16 +35,16 @@ Will give this result:
 ```json
 [
   {
-    '@id': 'https://sws.geonames.org/2784423/',
-    'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'http://www.geonames.org/ontology#Feature',
-    'http://www.geonames.org/ontology#countryCode': 'https://www.geonames.org/ontology#BE',
-    'http://www.geonames.org/ontology#featureClass': 'https://www.geonames.org/ontology#P',
-    'http://www.geonames.org/ontology#featureCode': 'https://www.geonames.org/ontology#P.PPL',
-    'http://www.geonames.org/ontology#name': 'Volkegem',
-    'http://www.opengis.net/ont/geosparql#asWKT': 'POINT (3.64024 50.84106)',
-    'http://www.w3.org/2000/01/rdf-schema#isDefinedBy': 'https://sws.geonames.org/2784423/about.rdf',
-    'http://www.w3.org/2003/01/geo/wgs84_pos#lat': '50.84106',
-    'http://www.w3.org/2003/01/geo/wgs84_pos#long': '3.64024'
+    "@id": "https://sws.geonames.org/2784423/",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://www.geonames.org/ontology#Feature",
+    "http://www.geonames.org/ontology#countryCode": "https://www.geonames.org/ontology#BE",
+    "http://www.geonames.org/ontology#featureClass": "https://www.geonames.org/ontology#P",
+    "http://www.geonames.org/ontology#featureCode": "https://www.geonames.org/ontology#P.PPL",
+    "http://www.geonames.org/ontology#name": "Volkegem",
+    "http://www.opengis.net/ont/geosparql#asWKT": "POINT (3.64024 50.84106)",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "https://sws.geonames.org/2784423/about.rdf",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat": "50.84106",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long": "3.64024"
   }
 ]
 ```
