@@ -1,8 +1,11 @@
 {
   "name": "tree-geocoder",
   "version": "0.0.1",
-  "description": "A Node.js CLI and library for geocoding based on GeoNames data and the TREE traversal approach",
-  "main": "index.js",
+  "description": "A Node.js CLI and library for geocoding based on GeoNames data and the TREE prefix traversal approach",
+  "main": "./lib/TreeGeocoder.js",
+  "bin": {
+    "tree-geocoder": "./bin/tree-geocoder.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
