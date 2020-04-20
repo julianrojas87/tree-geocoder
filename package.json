@@ -1,0 +1,30 @@
+{
+  "name": "tree-geocoder",
+  "version": "0.0.1",
+  "description": "A Node.js CLI and library for geocoding based on GeoNames data and the TREE traversal approach",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianrojas87/tree-geocoder.git"
+  },
+  "keywords": [
+    "Geocoder",
+    "GeoNames",
+    "TREE",
+    "Linked Data",
+    "Semantic Web"
+  ],
+  "author": "Julian Rojas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianrojas87/tree-geocoder/issues"
+  },
+  "homepage": "https://github.com/julianrojas87/tree-geocoder#readme",
+  "dependencies": {
+    "commander": "^5.0.0",
+    "rdf_tree_browser": "^1.0.0"
+  }
+}
