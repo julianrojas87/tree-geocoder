@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/tree-geocoder.svg?style=popout)](https://npmjs.com/package/tree-geocoder)
 
-A command line tool and library for geocoding based on [GeoNames](https://www.geonames.org/) data and the [TREE](https://github.com/TREEcg/specification#%E1%B4%9B%CA%80%E1%B4%87%E1%B4%87) traversal approach. The tool matches GeoNames entities using either prefix or suffix-based approaches. 
+A command line tool and library for geocoding based on [GeoNames](https://www.geonames.org/) data and the [TREE](https://github.com/TREEcg/specification#%E1%B4%9B%CA%80%E1%B4%87%E1%B4%87) traversal approach. The tool matches GeoNames entities using either prefix or suffix-based approaches.
 
 Prefix-based geocoding means that, querying for `gent` will result in entities like [`Gent`](https://sws.geonames.org/2797657/), [`Gentinnes`](https://sws.geonames.org/2797650/), [`Gentbrugge`](https://sws.geonames.org/2797652/), etc. 
 
@@ -45,16 +45,16 @@ Will give this result:
 ```json
 [
   {
-    '@id': 'https://sws.geonames.org/2797652',
-    'http://www.geonames.org/ontology#countryCode': 'http://www.geonames.org/ontology#BE',
-    'http://www.geonames.org/ontology#featureClass': 'http://www.geonames.org/ontology#P',
-    'http://www.geonames.org/ontology#featureCode': 'http://www.geonames.org/ontology#P.PPL',
-    'http://www.geonames.org/ontology#name': 'Gentbrugge',
-    'http://www.opengis.net/ont/geosparql#asWKT': 'POINT (3.76509 51.03692)',
-    'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'http://www.geonames.org/ontology#Feature',
-    'http://www.w3.org/2000/01/rdf-schema#isDefinedBy': 'https://sws.geonames.org/2797652/about.rdf',
-    'http://www.w3.org/2003/01/geo/wgs84_pos#lat': '5.103692E1',
-    'http://www.w3.org/2003/01/geo/wgs84_pos#long': '3.76509E0'
+    "@id": "https://sws.geonames.org/2797652",
+    "http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE",
+    "http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
+    "http://www.geonames.org/ontology#featureCode": "http://www.geonames.org/ontology#P.PPL",
+    "http://www.geonames.org/ontology#name": "Gentbrugge",
+    "http://www.opengis.net/ont/geosparql#asWKT": "POINT (3.76509 51.03692)",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://www.geonames.org/ontology#Feature",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "https://sws.geonames.org/2797652/about.rdf",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat": "5.103692E1",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long": "3.76509E0"
   }
 
 ]
@@ -65,12 +65,12 @@ Will give this result:
 Install it in your project `npm install tree-geocoder`. Then use it as follows:
 
 ```js
-const TreeGeocoder = require('tree-geocoder');
+const TreeGeocoder = require("tree-geocoder");
 
 async function runQuery() {
     const tgc = new TreeGeocoder();
     let results = await tgc.geocode({
-        query: 'your_query',
+        query: "your_query",
         maxResults: 10, // Optional
         prefixOnly: true // Set true for prefix. Suffix is default
     });
