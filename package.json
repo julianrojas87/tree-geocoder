@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/julianrojas87/tree-geocoder#readme",
   "dependencies": {
-    "commander": "^5.0.0",
-    "rdf_tree_browser": "^1.0.0"
+    "commander": "^5.1.0",
+    "rdf_tree_browser": "^1.1.1"
   }
 }

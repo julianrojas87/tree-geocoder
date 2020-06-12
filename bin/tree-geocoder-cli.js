@@ -5,6 +5,7 @@ var program = require('commander');
 
 program
     .option('--maxResults, <maxResults>', 'Maximum amount of desired results')
+    .option('--prefixSearch', 'Match results based on prefixes only (suffix-based matching is done by default)')
     .arguments('<query>', 'Input query string for the geocoding process')
     .action(query => {
         program.query = query;
@@ -19,7 +20,8 @@ async function run() {
 
     const result = await new TreeGeocoder().geocode({
         query: program.query,
-        maxResults: program.maxResults
+        maxResults: program.maxResults,
+        prefixOnly: program.prefixSearch
     });
 
     logger(result);
