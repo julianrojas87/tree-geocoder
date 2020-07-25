@@ -9,6 +9,7 @@ program
     .option('--minScore <minScore>', 'Minimum accepted score (based on Dice\'s coefficient) for matched results (value between 0 and 1)')
     .option('--mode, <mode>', 'Select "prefix" or "suffix" for specific matching mode. Suffix-based matching will be done by default')
     .option('--filter, <filter>', 'Enter "predicate object" pairs (within double quotes and separated by comma) that would be matched over found entities. E.g., "geonames:featureClass geonames:A, osm:boundary osm:Administrative, osm:hasTag \'addr:country=BE\'"')
+    .option('--streaming', 'Get streaming results. Sorting by string similarity cannot be guaranteed with streaming results')
     .arguments('<query>', 'Input query string for the geocoding process')
     .action(query => {
         program.query = query;
@@ -29,16 +30,16 @@ async function run() {
                 const rawP = f.trim().split(' ')[0];
                 const rawO = f.trim().split(' ')[1];
                 const ns = Namespaces[rawP.split(':')[0]];
-                const p =  ns + rawP.split(':')[1];
+                const p = ns + rawP.split(':')[1];
                 let o = /'(.*?)'/.exec(rawO);
-                if(!o) {
+                if (!o) {
                     o = rawO.split(':').length > 1 ? Namespaces[rawO.split(':')[0]] + rawO.split(':')[1] : rawO;
                 } else {
                     o = o[1];
                 }
 
-                if(!filter[ns]) filter[ns] = {};
-                 
+                if (!filter[ns]) filter[ns] = {};
+
                 filter[ns][p] = o;
             }
         } catch (err) {
@@ -48,24 +49,32 @@ async function run() {
     }
 
     let minScore = null;
-    if(program.minScore) {
+    if (program.minScore) {
         try {
             minScore = parseFloat(program.minScore);
-        } catch(err) {
+        } catch (err) {
             console.error(`Invalid minScore provided: ${err}`);
             process.exit(1);
         }
     }
 
-    const result = await new TreeGeocoder().geocode({
+    const opts = {
         query: program.query,
         maxResults: program.maxResults,
         minScore: minScore,
         mode: program.mode,
-        filter: filter
-    });
+        filter: filter,
+        streaming: program.streaming
+    };
 
-    logger(result);
+    const geocoder = new TreeGeocoder();
+
+    if (program.streaming) {
+        await geocoder.geocode(opts);
+        geocoder.on('data', logger);
+    } else {
+        logger(await geocoder.geocode(opts));
+    }
 }
 
 // Silence annoying logging from dependencies
