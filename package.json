@@ -28,6 +28,6 @@
   "homepage": "https://github.com/julianrojas87/tree-geocoder#readme",
   "dependencies": {
     "commander": "^5.1.0",
-    "rdf_tree_browser": "^1.1.1"
+    "rdf_tree_browser": "github:julianrojas87/ldtreeBrowser"
   }
 }
