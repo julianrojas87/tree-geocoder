@@ -69,11 +69,8 @@ async function run() {
 
     const geocoder = new TreeGeocoder();
 
-    if (program.streaming) {
-        await geocoder.geocode(opts);
-        geocoder.on('data', logger);
-    } else {
-        logger(await geocoder.geocode(opts));
+    for await (const d of geocoder.geocode(opts)) {
+        logger(d);
     }
 }
 
