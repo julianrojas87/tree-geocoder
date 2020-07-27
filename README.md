@@ -80,32 +80,32 @@ Refer to the documentation of [Geonames classes](https://www.geonames.org/export
 
 For example the **results** of a query for `entbru` will include the following:
 
-```json
+```bash
 tree-geocoder entbru
 [
-    {
-        "@id": "http://www.openstreetmap.org/way/7523153",
-    	"https://w3id.org/openstreetmap/terms#name": "Meentbrug",
-    	"score": 0.7692307692307693,
-    	"https://w3id.org/openstreetmap/terms#highway": "https://w3id.org/openstreetmap/terms#Unclassified",
-    	"http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.19221665E1,
-    	"http://www.w3.org/2003/01/geo/wgs84_pos#long": 4.4825865E0,
-    	"http://www.opengis.net/ont/geosparql#asWKT": "POINT (4.4825865 51.9221665)",
-    	"https://w3id.org/openstreetmap/terms#hasTag": "addr:country=NL",
-    	"http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "https://w3id.org/openstreetmap/terms#Way"
+  {
+      "@id": "http://www.openstreetmap.org/way/7523153",
+      "https://w3id.org/openstreetmap/terms#name": "Meentbrug",
+      "score": 0.7692307692307693,
+      "https://w3id.org/openstreetmap/terms#highway": "https://w3id.org/openstreetmap/terms#Unclassified",
+      "http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.19221665E1,
+      "http://www.w3.org/2003/01/geo/wgs84_pos#long": 4.4825865E0,
+      "http://www.opengis.net/ont/geosparql#asWKT": "POINT (4.4825865 51.9221665)",
+      "https://w3id.org/openstreetmap/terms#hasTag": "addr:country=NL",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "https://w3id.org/openstreetmap/terms#Way"
   },
   {
-  		"@id": "https://sws.geonames.org/2797652",
-    	"http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE",
-    	"score": 0.7142857142857143,
-    	"http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
-    	"http://www.geonames.org/ontology#featureCode": "http://www.geonames.org/ontology#P.PPL",
-    	"http://www.geonames.org/ontology#name": "Gentbrugge",
-    	"http://www.opengis.net/ont/geosparql#asWKT": "POINT (3.76509 51.03692)",
-    	"http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "https://sws.geonames.org/2797652/about.rdf",
-    	"http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.103692E1,
-    	"http://www.w3.org/2003/01/geo/wgs84_pos#long": 3.76509E0,
-    	"http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://www.geonames.org/ontology#Feature"
+      "@id": "https://sws.geonames.org/2797652",
+      "http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE",
+      "score": 0.7142857142857143,
+      "http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
+      "http://www.geonames.org/ontology#featureCode": "http://www.geonames.org/ontology#P.PPL",
+      "http://www.geonames.org/ontology#name": "Gentbrugge",
+      "http://www.opengis.net/ont/geosparql#asWKT": "POINT (3.76509 51.03692)",
+      "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "https://sws.geonames.org/2797652/about.rdf",
+      "http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.103692E1,
+      "http://www.w3.org/2003/01/geo/wgs84_pos#long": 3.76509E0,
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://www.geonames.org/ontology#Feature"
   }
   ...
 ]
