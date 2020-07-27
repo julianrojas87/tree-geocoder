@@ -39,7 +39,6 @@ async function run() {
                 }
 
                 if (!filter[ns]) filter[ns] = {};
-
                 filter[ns][p] = o;
             }
         } catch (err) {
@@ -69,8 +68,14 @@ async function run() {
 
     const geocoder = new TreeGeocoder();
 
-    for await (const d of geocoder.geocode(opts)) {
-        logger(d);
+    if(opts.streaming) {
+        // Receive results in a streaming (and non-sorted) way
+        for await (const d of geocoder.geocode(opts)) {
+            logger(d);
+        }
+    } else {
+        // Receive all (sorted) results at once
+        logger((await geocoder.geocode(opts).next()).value);
     }
 }
 
