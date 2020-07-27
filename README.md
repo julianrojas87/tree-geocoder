@@ -39,7 +39,7 @@ Usage: tree-geocoder [options] <query>
 
 Options:
   --maxResults, <maxResults>  Maximum amount of desired results
-  --minScore <minScore>       Minimum accepted score (based on Dice\'s coefficient) for matched results (value between 0 and 1)
+  --minScore <minScore>       Minimum accepted score (based on Dice's coefficient) for matched results (value between 0 and 1)
   --mode, <mode>              Select "prefix" or "suffix" for specific matching mode. Suffix-based matching will be done by default
   --filter, <filter>          Enter "predicate object" pairs (within double quotes and separated by comma) that would be matched over found entities. E.g., "geonames:featureClass geonames:A, osm:boundary osm:Administrative, osm:hasTag 'addr:country=BE'"
   --streaming                 Get streaming results. Sorting by string similarity cannot be guaranteed with streaming results
@@ -84,28 +84,28 @@ For example the **results** of a query for `entbru` will include the following:
 tree-geocoder entbru
 [
     {
-        '@id': 'http://www.openstreetmap.org/way/7523153',
-    	'https://w3id.org/openstreetmap/terms#name': 'Meentbrug',
+        "@id": "http://www.openstreetmap.org/way/7523153",
+    	"https://w3id.org/openstreetmap/terms#name": "Meentbrug",
     	score: 0.7692307692307693,
-    	'https://w3id.org/openstreetmap/terms#highway': 'https://w3id.org/openstreetmap/terms#Unclassified',
-    	'http://www.w3.org/2003/01/geo/wgs84_pos#lat': '5.19221665E1',
-    	'http://www.w3.org/2003/01/geo/wgs84_pos#long': '4.4825865E0',
-    	'http://www.opengis.net/ont/geosparql#asWKT': 'POINT (4.4825865 51.9221665)',
-    	'https://w3id.org/openstreetmap/terms#hasTag': 'addr:country=NL',
-    	'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'https://w3id.org/openstreetmap/terms#Way'
+    	"https://w3id.org/openstreetmap/terms#highway": "https://w3id.org/openstreetmap/terms#Unclassified",
+    	"http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.19221665E1,
+    	"http://www.w3.org/2003/01/geo/wgs84_pos#long": 4.4825865E0,
+    	"http://www.opengis.net/ont/geosparql#asWKT": "POINT (4.4825865 51.9221665)",
+    	"https://w3id.org/openstreetmap/terms#hasTag": "addr:country=NL",
+    	"http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "https://w3id.org/openstreetmap/terms#Way"
   },
   {
-  		'@id': 'https://sws.geonames.org/2797652',
-    	'http://www.geonames.org/ontology#countryCode': 'http://www.geonames.org/ontology#BE',
+  		"@id": "https://sws.geonames.org/2797652",
+    	"http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE",
     	score: 0.7142857142857143,
-    	'http://www.geonames.org/ontology#featureClass': 'http://www.geonames.org/ontology#P',
-    	'http://www.geonames.org/ontology#featureCode': 'http://www.geonames.org/ontology#P.PPL',
-    	'http://www.geonames.org/ontology#name': 'Gentbrugge',
-    	'http://www.opengis.net/ont/geosparql#asWKT': 'POINT (3.76509 51.03692)',
-    	'http://www.w3.org/2000/01/rdf-schema#isDefinedBy': 'https://sws.geonames.org/2797652/about.rdf',
-    	'http://www.w3.org/2003/01/geo/wgs84_pos#lat': '5.103692E1',
-    	'http://www.w3.org/2003/01/geo/wgs84_pos#long': '3.76509E0',
-    	'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'http://www.geonames.org/ontology#Feature'
+    	"http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
+    	"http://www.geonames.org/ontology#featureCode": "http://www.geonames.org/ontology#P.PPL",
+    	"http://www.geonames.org/ontology#name": "Gentbrugge",
+    	"http://www.opengis.net/ont/geosparql#asWKT": "POINT (3.76509 51.03692)",
+    	"http://www.w3.org/2000/01/rdf-schema#isDefinedBy": 'https://sws.geonames.org/2797652/about.rdf",
+    	"http://www.w3.org/2003/01/geo/wgs84_pos#lat": 5.103692E1,
+    	"http://www.w3.org/2003/01/geo/wgs84_pos#long": 3.76509E0,
+    	"http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://www.geonames.org/ontology#Feature"
   }
   ...
 ]
@@ -113,7 +113,7 @@ tree-geocoder entbru
 
 ## Library
 
-Install it in your project `npm install tree-geocoder`. 
+Install it in your project `npm install tree-geocoder`.
 
 The `TreeGeocoder` class exposes the [AsyncGenerator](https://tc39.es/ecma262/#sec-async-generator-function-definitions) function `geocode()`, which can be used as follows:
 
@@ -128,9 +128,19 @@ async function runQuery() {
         query: "your_query",
         minScore: 0.6 // Optional. Values between 0 and 1 (higher means more similar)
         maxResults: 10, // Optional
-        mode: 'prefix' // Or don't define to get suffix-based results
+        mode: "prefix", // Or don't define to get suffix-based results
+        filter: { // Optional. Define the predicate-object pairs that will be matched against each type of entity
+            "https://w3id.org/openstreetmap/terms#": { // Rules for OSM entities
+                "https://w3id.org/openstreetmap/terms#highway": "https://w3id.org/openstreetmap/terms#Motorway",
+                "https://w3id.org/openstreetmap/terms#hasTag": "addr:country=BE"
+            },
+            "http://www.geonames.org/ontology#": { // Rules for GeoNames entities
+                "http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
+                "http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE"
+            }
+        }
     };
-    
+
     const results = (await tgc.geocode(opts).next()).value;
     console.log(results);
 }
@@ -149,7 +159,17 @@ async function runQuery() {
         query: "your_query",
         minScore: 0.6 // Optional. Values between 0 and 1 (higher means more similar)
         maxResults: 100, // Optional
-        streaming: true
+        streaming: true,
+        filter: { // Optional. Define the predicate-object pairs that will be matched against each type of entity
+            "https://w3id.org/openstreetmap/terms#": { // Rules for OSM entities
+                "https://w3id.org/openstreetmap/terms#highway": "https://w3id.org/openstreetmap/terms#Motorway",
+                "https://w3id.org/openstreetmap/terms#hasTag": "addr:country=BE"
+            },
+            "http://www.geonames.org/ontology#": { // Rules for GeoNames entities
+                "http://www.geonames.org/ontology#featureClass": "http://www.geonames.org/ontology#P",
+                "http://www.geonames.org/ontology#countryCode": "http://www.geonames.org/ontology#BE"
+            }
+        }
     };
     for await (const result of tgc.geocode(opts)) {
         console.log(result);
@@ -158,6 +178,3 @@ async function runQuery() {
 
 runQuery();
 ```
-
-
-
