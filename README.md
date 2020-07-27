@@ -76,9 +76,9 @@ A **more specific filter** for only GeoNames water streams and OSM residential r
 tree-geocoder --filter "geonames:featureCode geonames:H.STM, geonames:countryCode geonames:FR, osm:highway osm:Residential, osm:hasTag 'addr:country=FR'" your_query
 ```
 
-Refer to the documentation of [Geonames classes](https://www.geonames.org/export/codes.html) and [OSM tags](https://wiki.openstreetmap.org/wiki/Map_Features) for more information on how to use the filtering option.
+Refer to the documentation of [Geonames classes](https://www.geonames.org/export/codes.html) and [OSM tags](https://wiki.openstreetmap.org/wiki/Map_Features) for more information on what is possible in the filtering option.
 
-For example the **results** of a query for `entbru` will include the following:
+As an example on how the **results** of a query look see the following query for `entbru` which will include the following:
 
 ```bash
 tree-geocoder entbru
@@ -112,6 +112,8 @@ tree-geocoder entbru
 ```
 
 ## Library
+
+This tool can be used both in the backend (Node.js) and in the browser by means of a tool such as Webpack.
 
 Install it in your project `npm install tree-geocoder`.
 
@@ -171,6 +173,7 @@ async function runQuery() {
             }
         }
     };
+
     for await (const result of tgc.geocode(opts)) {
         console.log(result);
     }
