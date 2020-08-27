@@ -159,7 +159,7 @@ async function runQuery() {
     const tgc = new TreeGeocoder();
     const opts = {
         query: "your_query",
-        minScore: 0.6 // Optional. Values between 0 and 1 (higher means more similar)
+        minScore: 0.6, // Optional. Values between 0 and 1 (higher means more similar)
         maxResults: 100, // Optional
         streaming: true,
         filter: { // Optional. Define the predicate-object pairs that will be matched against each type of entity
