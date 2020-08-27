@@ -71,11 +71,11 @@ async function run() {
     if(opts.streaming) {
         // Receive results in a streaming (and non-sorted) way
         for await (const d of geocoder.geocode(opts)) {
-            logger(d);
+            logger(JSON.stringify(d));
         }
     } else {
         // Receive all (sorted) results at once
-        logger((await geocoder.geocode(opts).next()).value);
+        logger(JSON.stringify((await geocoder.geocode(opts).next()).value));
     }
 }
 
